@@ -5,4 +5,25 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
+    fill: blue;
+}
+
+.introduction-text {
+    display: grid;
+    justify-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.introduction-text span {
+    background-color: white;
+    color: #BD0001;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 50px;
+}
+
+.introduction-text h1 {
+    margin-top: 10px;
+    
 }
