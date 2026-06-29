@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.header-nav a{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.header-nav a::after {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 2px;
+    background-color: #FBC418;
+    transition: width 0.5s;
+}
+
+.header-nav a:hover::after {
+    width: 100%;
+}
+
+.header-nav a:hover {
+    color: #FBC418;
+}
