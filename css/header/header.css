@@ -29,3 +29,12 @@
 .header-nav a:hover {
     color: #FBC418;
 }
+
+@media (max-width: 500px) {
+    .header {
+        display: grid;
+        justify-content: center;
+        justify-items: center;
+    } 
+
+}
