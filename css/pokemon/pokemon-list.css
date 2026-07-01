@@ -1,0 +1,27 @@
+.pokedex-type {
+  border-right: 1px solid  #e7e7e7;
+}
+
+.pokedex-list {
+  margin-top: 80px;
+}
+
+.pokedex-button {
+  display: flex;
+  gap: 20px;
+  padding: 10px 15px;
+  background-color: white;
+  margin-bottom: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.pokedex-button img {
+  width: 18px;
+  height: 18px;
+}
+
+.pokedex-button span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #c9c9c9;
+}

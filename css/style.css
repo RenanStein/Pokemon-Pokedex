@@ -9,3 +9,8 @@
 
 /*Introduction*/
 @import 'introduction/introduction.css';
+
+/* Pokemon */
+@import 'pokemon/pokemon-container.css';
+@import 'pokemon/pokemon-grid.css';
+@import 'pokemon/pokemon-list.css';
