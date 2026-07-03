@@ -14,3 +14,6 @@
 @import 'pokemon/pokemon-container.css';
 @import 'pokemon/pokemon-grid.css';
 @import 'pokemon/pokemon-list.css';
+
+/* footer */
+@import 'footer/footer.css';

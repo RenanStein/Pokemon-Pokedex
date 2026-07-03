@@ -8,3 +8,8 @@
   gap: 10px;
 }
 
+@media (max-width: 800px) {
+  .pokedex {
+    grid-template-columns: 1fr;
+  }
+}
