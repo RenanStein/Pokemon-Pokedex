@@ -64,6 +64,11 @@
     transform: translate(-50%, -50%);
 }
 
+.pokebola {
+    display: none;
+}
+
+
 .introduction-light {
     z-index: 8;
 }
