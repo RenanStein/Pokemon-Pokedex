@@ -10,6 +10,55 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    transition: opacity 0.5s;
+}
+
+
+
+.fade { 
+animation: anima-fundo 20s ease 1s infinite alternate;
+-webkit-animation: anima-fundo 20s ease 1s infinite alternate;
+-moz-animation: anima-fundo 20s ease 1s infinite alternate;
+transition: 3s all;
+-webkit-transition: 3s all;
+-moz-transition: 3s all; 
+}
+
+@keyframes anima-fundo {
+  0%   { background-position: 50% 50%; }
+  50%  { background-position: 50.2% 50.2%; }
+  100% { background-position: 50% 50%; }
+}
+
+@-webkit-keyframes anima-fundo {
+   0%   { background-position: 50% 50% }
+   25%  { background-position: 55% 55% }
+   50%  { background-position: 60% 45% }
+   75%  { background-position: 40% 30% }
+   100% { background-position: 60% 40% }
+}
+
+@-moz-keyframes anima-fundo {
+   0%   { background-position: 50% 50% }
+   25%  { background-position: 55% 55% }
+   50%  { background-position: 60% 45% }
+   75%  { background-position: 40% 30% }
+   100% { background-position: 60% 40% }
+}
+
+.fade-img {
+    animation: flutuar 5s ease-in-out infinite;
+    will-change: transform;
+    transition: opacity 0.8s ease-in-out;
+}
+
+@keyframes flutuar {
+    50% {
+         transform: translate(-50%, -51%);
+    }
+    100% {
+         transform: translate(-50%, -50%);
+    }
 }
 
 .introduction-text {
@@ -21,7 +70,7 @@
     text-align: center;
 }
 
-.introduction-text span {
+.introduction-text-span {
     background-color: white;
     color: #d60000;
     font-size: 1rem;
@@ -64,7 +113,7 @@
     transform: translate(-50%, -50%);
 }
 
-.pokebola {
+.poke-ativo {
     display: none;
 }
 
