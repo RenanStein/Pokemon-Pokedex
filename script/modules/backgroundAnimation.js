@@ -6,13 +6,13 @@ export default function initBackgroundAnimation(){
     const bg1 = document.querySelector(".bg1");
     const bg2 = document.querySelector(".bg2");
     const images = [
-        "../.././img/bg-blue.svg",
-        "../.././img/bg-red.svg"
+        "../.././img/bg-red.svg",
+        "../.././img/bg-blue.svg"
     ];
 
     const span = [
-        "#2b53a5",
-        "#d60000"
+        "#d60000",
+        "#2b53a5"
     ];
     
     let indice = 0;
