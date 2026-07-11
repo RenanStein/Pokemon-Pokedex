@@ -42,7 +42,7 @@ export default function initPokemon() {
       <div class="pokemon-info">
         <span>#${String(numero).padStart(3, "0")}</span>
         <p>${nome}</p>
-        <img src="../../img/icons-type/${tipo}.svg" alt="${tipo}">
+        <img src="img/icons-type/${tipo}.svg" alt="${tipo}">
       </div>
     `;
 
