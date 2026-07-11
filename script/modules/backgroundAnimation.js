@@ -36,7 +36,7 @@ export default function initBackgroundAnimation(){
         background.style.backgroundImage = `url("${images[indice]}")`;
         introductionSpan.style.color = span[color];
 
-    }, 100); // mesmo tempo da transição
+    }, 1); // mesmo tempo da transição
         animar()
     }, 10000)
 
