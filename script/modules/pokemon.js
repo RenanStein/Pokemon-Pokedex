@@ -1,6 +1,9 @@
 export default function initPokemon() {
   const pokemonLista = document.querySelector('[data-pokemon="lista"]');
   const button = document.querySelector('[data-button="more"]');
+  const buttonAll = document.querySelector('[data-type="unknown"]');
+  const divErr = document.querySelector('.message-err');
+  const divButton = document.querySelector('.button-more');
   
   let offset = 0;
   const limit = 9;
@@ -53,13 +56,20 @@ export default function initPokemon() {
   let todosPokemons = [];
 
   async function consumirAPI() {
+    try {
     const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
 
+    if (!resposta.ok) {
+      throw new Error(`Erro ${resposta.status}`);
+    }
     const dados = await resposta.json();
 
     const detalhes = await Promise.all(
       dados.results.map(async (pokemon) => {
         const respostaDetalhe = await fetch(pokemon.url);
+        if (!respostaDetalhe.ok) {
+          throw new Error(`Erro ${respostaDetalhe.status}`);
+          }
         const detalhe = await respostaDetalhe.json();
 
         return {
@@ -72,6 +82,12 @@ export default function initPokemon() {
     );
 
     return detalhes;
+  } catch(err) {
+    divErr.style.display = 'grid';
+    divButton.style.display = 'none';
+    console.log(err);
+    return [];
+  }
   }
 
 //adicionar um novo pokemon clicando no botão more
@@ -97,4 +113,26 @@ export default function initPokemon() {
 
   adicionarPokemons();
 
+    async function resetPoke(retornoPokemonsApi) {
+    pokemonLista.innerHTML = "";
+    offset = 0;
+    
+    const pokemons = await consumirAPI();
+
+    pokemons.forEach((pokemon) => {
+      pokemonLista.appendChild(
+        criarPokemon(
+          pokemon.number,
+          pokemon.name,
+          pokemon.img,
+          pokemon.type,
+          colorTypes[pokemon.type]
+        )
+      );
+    });
+
+    offset += limit;
+  }
+
+  buttonAll.addEventListener('click', resetPoke);
 }

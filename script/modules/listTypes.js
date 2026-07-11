@@ -1,4 +1,6 @@
 export default function initListTypes(){
+  const divErr = document.querySelector('.message-err');
+  const divButton = document.querySelector('.button-more');
   const pokemonLista = document.querySelector('[data-pokemon="lista"]');
   const buttonAll = document.querySelector('[data-type="unknown"]');
   const buttonNormal = document.querySelector('[data-type="normal"]');
@@ -13,11 +15,12 @@ export default function initListTypes(){
   const buttonFire = document.querySelector('[data-type="fire"]');
   const buttonWater = document.querySelector('[data-type="water"]');
   const buttonGrass = document.querySelector('[data-type="grass"]');
-  const buttonEletric = document.querySelector('[data-type="eletric"]');
+  const buttonElectric = document.querySelector('[data-type="electric"]');
   const buttonPsychic = document.querySelector('[data-type="psychic"]');
   const buttonIce = document.querySelector('[data-type="ice"]');
   const buttonDragon = document.querySelector('[data-type="dragon"]');
   const buttonDark = document.querySelector('[data-type="dark"]');
+  const buttonFairy = document.querySelector('[data-type="fairy"]');
 
    let offset = 0;
   const limit = 9;
@@ -55,7 +58,7 @@ export default function initListTypes(){
       <div class="pokemon-info">
         <span>#${String(numero).padStart(3, "0")}</span>
         <p>${nome}</p>
-        <img src="../../img/icons-type/${tipo}.svg" alt="${tipo}">
+        <img src="img/icons-type/${tipo}.svg" alt="${tipo}">
       </div>
     `;
 
@@ -67,12 +70,19 @@ export default function initListTypes(){
   }
 
  async function requestAPI(type) {
+  try {
     const resposta = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
+    if (!resposta.ok) {
+      throw new Error(`Erro ${resposta.status}`);
+    }
     const dados = await resposta.json();
 
     const dadosCompleto = await Promise.all(
       dados.pokemon.map(async (poke) => {
         const respostaDetalhe = await fetch(poke.pokemon.url);
+        if (!respostaDetalhe.ok) {
+          throw new Error(`Erro ${respostaDetalhe.status}`);
+        }
         const detalhe = await respostaDetalhe.json();
 
         return {
@@ -85,12 +95,17 @@ export default function initListTypes(){
     );
 
     return dadosCompleto;
+  } catch(err) {
+    divErr.style.display = 'grid';
+    divButton.style.display = 'none';
+    console.log(err);
+    return [];
+  }
   }
 
   async function filtrarPokemons(event) {
     pokemonLista.innerHTML = "";
 
-    console.log(event.currentTarget.dataset.type)
     const type = event.currentTarget.dataset.type;
 
     const pokemons = await requestAPI(type);
@@ -120,10 +135,11 @@ export default function initListTypes(){
   buttonFire.addEventListener("click", filtrarPokemons);
   buttonWater.addEventListener("click", filtrarPokemons);
   buttonGrass.addEventListener("click", filtrarPokemons);
-  buttonEletric.addEventListener("click", filtrarPokemons);
+  buttonElectric.addEventListener("click", filtrarPokemons);
   buttonPsychic.addEventListener("click", filtrarPokemons);
   buttonIce.addEventListener("click", filtrarPokemons);
   buttonDragon.addEventListener("click", filtrarPokemons);
   buttonDark.addEventListener("click", filtrarPokemons);
+  buttonFairy.addEventListener("click", filtrarPokemons);
 
 }
