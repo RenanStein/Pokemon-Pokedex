@@ -7,7 +7,6 @@ export default function menuResponsivo(){
   const listMenuItens = document.querySelectorAll('[data-menu="dropdown"] li');
   const textoTipo = document.querySelector('[data-menu] strong');
 
-  console.log(textoTipo)
   function ativarMenu(){
     listaMenu.classList.toggle('ativar-menu');
   }
@@ -25,7 +24,7 @@ function handleClick(event){
   textoTipo.innerText = ' ' + valorTipo
 
   let valorTipoMaiscula = valorTipo.toLowerCase();
-  
+
   if(valorTipoMaiscula === 'all'){
     initPokemon(valorTipoMaiscula)
   } else {
