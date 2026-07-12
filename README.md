@@ -84,4 +84,3 @@ https://pokeapi.co/
 
 Desenvolvido por **Renan Stein**.
 
-Este projeto representa um marco importante na minha jornada de aprendizado em desenvolvimento Front-end e demonstra minha evolução trabalhando com JavaScript puro, consumo de APIs e desenvolvimento de interfaces responsivas.
