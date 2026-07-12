@@ -1,8 +1,7 @@
-export default function initListTypes(){
+export default function initListTypes(tipoPokemon){
   const divErr = document.querySelector('.message-err');
   const divButton = document.querySelector('.button-more');
   const pokemonLista = document.querySelector('[data-pokemon="lista"]');
-  const buttonAll = document.querySelector('[data-type="unknown"]');
   const buttonNormal = document.querySelector('[data-type="normal"]');
   const buttonFighting = document.querySelector('[data-type="fighting"]');
   const buttonFlying = document.querySelector('[data-type="flying"]');
@@ -103,12 +102,10 @@ export default function initListTypes(){
   }
   }
 
-  async function filtrarPokemons(event) {
+  async function filtrarPokemons(tipo) {
     pokemonLista.innerHTML = "";
 
-    const type = event.currentTarget.dataset.type;
-
-    const pokemons = await requestAPI(type);
+    const pokemons = await requestAPI(tipo);
 
     pokemons.forEach((pokemon) => {
       pokemonLista.appendChild(
@@ -122,24 +119,38 @@ export default function initListTypes(){
       );
     });
   }
-  buttonAll.addEventListener("click", filtrarPokemons);
-  buttonNormal.addEventListener("click", filtrarPokemons);
-  buttonFighting.addEventListener("click", filtrarPokemons);
-  buttonFlying.addEventListener("click", filtrarPokemons);
-  buttonPoison.addEventListener("click", filtrarPokemons);
-  buttonGround.addEventListener("click", filtrarPokemons);
-  buttonRock.addEventListener("click", filtrarPokemons);
-  buttonBug.addEventListener("click", filtrarPokemons);
-  buttonGhost.addEventListener("click", filtrarPokemons);
-  buttonSteel.addEventListener("click", filtrarPokemons);
-  buttonFire.addEventListener("click", filtrarPokemons);
-  buttonWater.addEventListener("click", filtrarPokemons);
-  buttonGrass.addEventListener("click", filtrarPokemons);
-  buttonElectric.addEventListener("click", filtrarPokemons);
-  buttonPsychic.addEventListener("click", filtrarPokemons);
-  buttonIce.addEventListener("click", filtrarPokemons);
-  buttonDragon.addEventListener("click", filtrarPokemons);
-  buttonDark.addEventListener("click", filtrarPokemons);
-  buttonFairy.addEventListener("click", filtrarPokemons);
 
+  function verificarTipo(event){
+    if(tipoPokemon === undefined){
+      let type = event.currentTarget.dataset.type;
+      filtrarPokemons(type);
+    } 
+  }
+
+  function verificarEntrada(poke){
+    if(poke !== undefined){
+      let type = poke;
+      filtrarPokemons(type);
+    }
+  }
+
+  verificarEntrada(tipoPokemon)
+  buttonNormal.addEventListener("click", verificarTipo);
+  buttonFighting.addEventListener("click", verificarTipo);
+  buttonFlying.addEventListener("click", verificarTipo);
+  buttonPoison.addEventListener("click", verificarTipo);
+  buttonGround.addEventListener("click", verificarTipo);
+  buttonRock.addEventListener("click", verificarTipo);
+  buttonBug.addEventListener("click", verificarTipo);
+  buttonGhost.addEventListener("click", verificarTipo);
+  buttonSteel.addEventListener("click", verificarTipo);
+  buttonFire.addEventListener("click", verificarTipo);
+  buttonWater.addEventListener("click", verificarTipo);
+  buttonGrass.addEventListener("click", verificarTipo);
+  buttonElectric.addEventListener("click", verificarTipo);
+  buttonPsychic.addEventListener("click", verificarTipo);
+  buttonIce.addEventListener("click", verificarTipo);
+  buttonDragon.addEventListener("click", verificarTipo);
+  buttonDark.addEventListener("click", verificarTipo);
+  buttonFairy.addEventListener("click", verificarTipo);
 }

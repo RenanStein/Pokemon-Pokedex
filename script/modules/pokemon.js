@@ -1,4 +1,4 @@
-export default function initPokemon() {
+export default function initPokemon(valorAll) {
   const pokemonLista = document.querySelector('[data-pokemon="lista"]');
   const button = document.querySelector('[data-button="more"]');
   const buttonAll = document.querySelector('[data-type="unknown"]');
@@ -108,12 +108,12 @@ export default function initPokemon() {
 
     offset += limit;
   }
-
   button.addEventListener("click", adicionarPokemons);
 
-  adicionarPokemons();
 
     async function resetPoke(retornoPokemonsApi) {
+    console.log('reste')
+
     pokemonLista.innerHTML = "";
     offset = 0;
     
@@ -133,6 +133,12 @@ export default function initPokemon() {
 
     offset += limit;
   }
+
+  if (valorAll !== undefined) {
+  resetPoke();
+} else {
+  adicionarPokemons();
+}
 
   buttonAll.addEventListener('click', resetPoke);
 }
