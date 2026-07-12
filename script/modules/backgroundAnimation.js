@@ -6,8 +6,8 @@ export default function initBackgroundAnimation(){
     const bg1 = document.querySelector(".bg1");
     const bg2 = document.querySelector(".bg2");
     const images = [
-        "/img/bg-red.svg",
-        "/img/bg-blue.svg"
+        "./img/bg-red.svg",
+        "./img/bg-blue.svg"
     ];
 
     const span = [
