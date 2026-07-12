@@ -5,8 +5,9 @@ export default function menuResponsivo(){
   const buttonMenu = document.querySelector('[data-menu]');
   const listaMenu = document.querySelector('[data-menu="dropdown"]')
   const listMenuItens = document.querySelectorAll('[data-menu="dropdown"] li');
+  const textoTipo = document.querySelector('[data-menu] strong');
 
-
+  console.log(textoTipo)
   function ativarMenu(){
     listaMenu.classList.toggle('ativar-menu');
   }
@@ -20,12 +21,15 @@ export default function menuResponsivo(){
 function handleClick(event){
   event.preventDefault();
   listaMenu.classList.remove('ativar-menu');
-  let valorTipo = event.target.innerText.toLowerCase()
+  let valorTipo = event.target.innerText
+  textoTipo.innerText = ' ' + valorTipo
 
-  if(valorTipo === 'all'){
-    initPokemon(valorTipo)
+  let valorTipoMaiscula = valorTipo.toLowerCase();
+  
+  if(valorTipoMaiscula === 'all'){
+    initPokemon(valorTipoMaiscula)
   } else {
-    initListTypes(valorTipo)
+    initListTypes(valorTipoMaiscula)
   }
 }
 

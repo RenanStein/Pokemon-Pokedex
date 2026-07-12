@@ -112,8 +112,7 @@ export default function initPokemon(valorAll) {
 
 
     async function resetPoke(retornoPokemonsApi) {
-    console.log('reste')
-
+      
     pokemonLista.innerHTML = "";
     offset = 0;
     
