@@ -26,24 +26,24 @@ export default function initListTypes(){
   const limit = 9;
 
     const colorTypes = {
-    normal: "#aaa67f93",
-    fire: "#f57c3191",
-    water: "#6493eb85",
-    electric: "#f9cd308f",
-    grass: "#74cb488f",
-    ice: "#9ad6df86",
-    fighting: "#c1223993",
-    poison: "#a43e9e8f",
-    ground: "#dec16b91",
-    flying: "#a891ec91",
-    psychic: "#fb558490",
-    bug: "#a7b7238f",
-    rock: "#b69e318f",
-    ghost: "#70559b8f",
-    dragon: "#7037ff91",
-    dark: "#75574c91",
-    steel: "#b7b9d093",
-    fairy: "#e69eac91",
+      normal: "#aaa67f93",
+      fire: "#f57c3191",
+      water: "#6493eb85",
+      electric: "#f9cd308f",
+      grass: "#74cb488f",
+      ice: "#9ad6df86",
+      fighting: "#c1223993",
+      poison: "#a43e9e8f",
+      ground: "#dec16b91",
+      flying: "#a891ec91",
+      psychic: "#fb558490",
+      bug: "#a7b7238f",
+      rock: "#b69e318f",
+      ghost: "#70559b8f",
+      dragon: "#7037ff91",
+      dark: "#75574c91",
+      steel: "#b7b9d093",
+      fairy: "#e69eac91",
   };
 
    function criarPokemon(numero, nome, imagem, tipo, cor) {
@@ -87,7 +87,7 @@ export default function initListTypes(){
 
         return {
           number: detalhe.id,
-          name: detalhe.name,
+          name: primeiraMaiuscula(detalhe.name),
           img: detalhe.sprites.other["official-artwork"].front_default,
           type: detalhe.types[0].type.name,
         };

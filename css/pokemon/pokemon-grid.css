@@ -93,7 +93,7 @@
   margin-bottom: 50px;
 }
 .button-more button {
-  background-color: #e7010193;
+  background-color: #3e6dbe94;
   color: white;
   font-size: 1rem;
   font-weight: 600;
@@ -106,7 +106,7 @@
 
 .button-more button:hover {
   box-shadow: 0px 0px 0px rgb(201, 201, 201);
-  background-color: #e70101;
+  background-color: #3E6DBE;
 }
 
 @media (max-width: 1050px) {
