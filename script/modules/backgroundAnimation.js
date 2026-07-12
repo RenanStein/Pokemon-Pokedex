@@ -38,7 +38,7 @@ export default function initBackgroundAnimation(){
 
     }, 1); // mesmo tempo da transição
         animar()
-    }, 10000)
+    }, 8000)
 
     function animar() {
     void background.offsetWidth;
